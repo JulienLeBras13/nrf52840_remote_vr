@@ -29,6 +29,7 @@ static void buttons_service_ccc_cfg_changed(const struct bt_gatt_attr *attr,
     uint16_t value)
 {
 	buttons_service_notify_enabled = (value == BT_GATT_CCC_NOTIFY);
+	printk("Nofitication changed to : %s\n", buttons_service_notify_enabled ? "enable" : "disable");
 }
 
 int buttons_service_init(struct buttons_service_cb *callbacks){
@@ -71,6 +72,8 @@ int buttons_service_send_buttons_state_notify(uint16_t button_state){
     if (!buttons_service_notify_enabled) {
         return -EACCES;
     }
+
+	printk("Sending notification...\n");
 
     return bt_gatt_notify(NULL, &buttons_service_svc.attrs[2], &button_state, sizeof(button_state));
 }

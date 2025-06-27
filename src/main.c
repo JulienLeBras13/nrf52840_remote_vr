@@ -67,14 +67,14 @@ static void on_connected(struct bt_conn *conn, uint8_t err)
 
 	printk("Connected\n");
 
-	//dk_set_led_on(CON_STATUS_LED);
+	dk_set_led_on(CON_STATUS_LED);
 }
 
 static void on_disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	printk("Disconnected (reason %u)\n", reason);
 
-	//dk_set_led_off(CON_STATUS_LED);
+	dk_set_led_off(CON_STATUS_LED);
 }
 
 struct bt_conn_cb connection_callbacks = {
