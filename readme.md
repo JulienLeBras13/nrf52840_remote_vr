@@ -2,9 +2,13 @@
 
 
 TODO:
+
     - add comments
+
     - test the sensibility of the ISR/debounce
+
     - configure the C# client (Unity)
+
     - clean code
 
 
