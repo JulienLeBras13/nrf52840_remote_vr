@@ -3,15 +3,13 @@
 
 TODO:
 
-    - add comments
+    - test the sensibility of the ISR/debounce => partially done
 
-    - test the sensibility of the ISR/debounce
+    - configure the C# client (Unity) => in progress
 
-    - configure the C# client (Unity)
+    - clean code (LOG when no more usefull)
 
-    - clean code
-
-
-version: 1.0
 
 author: Julien Le Bras
+
+version: 1.0

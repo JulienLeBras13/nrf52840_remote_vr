@@ -44,15 +44,13 @@ static ssize_t read_buttons(struct bt_conn *conn, const struct bt_gatt_attr *att
 			   uint16_t len, uint16_t offset)
 {
 	LOG_INF("read_buttons() called — conn %p", (void*)conn);
-	// get a pointer to button_state which is passed in the BT_GATT_CHARACTERISTIC() and stored in attr->user_data
-	//const char *value = attr->user_data;
 
 	LOG_INF("Attribute read, handle: %u, conn: %p", attr->handle, (void *)conn);
 
 	if (btns_callback.buttons_cb) {
 		// Call the application callback function to update the get the current value of the button
 		buttons_state_ble = btns_callback.buttons_cb();
-		return bt_gatt_attr_read(conn, attr, buf, len, offset, &buttons_state_ble/*value*/, sizeof(buttons_state_ble)/*sizeof(*value)*/);
+		return bt_gatt_attr_read(conn, attr, buf, len, offset, &buttons_state_ble, sizeof(buttons_state_ble));
 	}
 
 	return 0;
